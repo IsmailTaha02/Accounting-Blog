@@ -1,0 +1,6 @@
+Flask==2.2.5
+flask_sqlalchemy
+flask_cors
+python-dotenv==1.0.0
+pyjwt
+gunicorn
