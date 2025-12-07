@@ -11,7 +11,8 @@ load_dotenv()
 db = SQLAlchemy()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "").strip()
+
 
 def create_app():
     app = Flask(__name__)
