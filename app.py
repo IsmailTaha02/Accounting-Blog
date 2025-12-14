@@ -132,7 +132,22 @@ def create_app():
         slug = re.sub(r'[^a-z0-9]+', '-', slug)
         return slug.strip('-')
 
+
+    @app.route("/api/posts/<slug>", methods=["DELETE"])
+    @admin_required
+    def delete_post(slug):
+        post = Post.query.filter_by(slug=slug).first()
+        if not post:
+            return jsonify({"error": "Post not found"}), 404
+
+        db.session.delete(post)
+        db.session.commit()
+
+        return jsonify({"msg": f"Post '{slug}' deleted"}), 200
+    
+    
     return app
+
 
 app = create_app()
 
