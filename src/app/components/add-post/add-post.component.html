@@ -1,0 +1,26 @@
+<!-- NAVBAR -->
+<app-topbar></app-topbar>
+
+<div class="add-container-wrapper">
+  <div class="add-container">
+    <h2>Add New Blog Post</h2>
+
+    <form (ngSubmit)="addPost()">
+      <label>Title</label>
+      <input type="text" [(ngModel)]="title" name="title" required />
+
+      <!-- <label>Slug (URL link)</label>
+        <input type="text" [(ngModel)]="slug" name="slug" required /> -->
+
+      <label>Content</label>
+      <textarea
+        rows="7"
+        [(ngModel)]="content"
+        name="content"
+        required
+      ></textarea>
+
+      <button type="submit">Publish Post</button>
+    </form>
+  </div>
+</div>

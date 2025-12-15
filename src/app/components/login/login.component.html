@@ -1,0 +1,17 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <h2>Admin Login</h2>
+    <p class="subtitle">Enter password to continue</p>
+
+    <input
+      type="password"
+      [(ngModel)]="password"
+      placeholder="Admin password"
+      class="input"
+    />
+
+    <button class="login-btn" (click)="login()">Login</button>
+
+    <p *ngIf="error" class="error">Incorrect password</p>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<!-- NAVBAR -->
+<app-topbar></app-topbar>
+
+<!-- HERO COVER -->
+<section class="hero">
+  <div class="overlay">
+    <h1>Welcome to Accounting Blog</h1>
+    <p>Learn accounting fundamentals with simple explanations.</p>
+  </div>
+</section>
+
+<!-- SEARCH BAR -->
+<div class="search-container">
+  <input
+    type="text"
+    placeholder="Search posts..."
+    [(ngModel)]="searchQuery"
+    (input)="filterPosts()"
+  />
+</div>
+
+<!-- CONTENT -->
+<div *ngIf="filteredPosts$ | async as posts; else loading">
+  <div
+    *ngFor="let post of posts"
+    class="post-card"
+    [routerLink]="['/post', post.slug]"
+  >
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content | slice : 0 : 150 }}...</p>
+    <a [routerLink]="['/post', post.slug]" class="read-btn">Read more →</a>
+
+    <!-- Delete button, only for admin -->
+    <button
+      *ngIf="auth.isLoggedIn()"
+      class="delete-btn"
+      (click)="deletePost($event, post.slug)"
+    >
+      <img src="/delete_b.png" alt="" />
+    </button>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading posts...</p>
+</ng-template>

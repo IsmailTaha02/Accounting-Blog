@@ -1,0 +1,27 @@
+<header class="navbar">
+  <div class="logo">📘 Accounting Blog</div>
+  <nav class="nav-links">
+    <a routerLink="/posts" routerLinkActive="active">Home</a>
+
+    <a>Articles</a>
+    <a>About</a>
+    <a>Contact</a>
+  </nav>
+
+  <div class="action-btn">
+    <button *ngIf="auth.isLoggedIn()" routerLink="/add-post" class="add-btn">
+      + Add Post
+    </button>
+    <button *ngIf="!auth.isLoggedIn()" routerLink="/login" class="login-btn">
+      Login
+    </button>
+    <button
+      *ngIf="auth.isLoggedIn()"
+      (click)="auth.logout()"
+      routerLink="/posts"
+      class="logout-btn"
+    >
+      Logout
+    </button>
+  </div>
+</header>

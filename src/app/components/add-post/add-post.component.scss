@@ -1,0 +1,35 @@
+.add-container-wrapper {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.add-container {
+  max-width: 650px;
+  // margin: auto;
+  padding: 20px;
+  padding-right: 40px;
+  border: 1px solid rgb(214, 208, 208);
+  border-radius: 7px;
+}
+
+h2 {
+  text-align: center;
+}
+input,
+textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+button {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}

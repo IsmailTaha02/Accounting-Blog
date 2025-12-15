@@ -1,0 +1,9 @@
+<!-- NAVBAR -->
+<app-topbar></app-topbar>
+
+<div *ngIf="post$ | async as post; else loading" class="post-details-container">
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.content }}</p>
+  <p class="date">{{ post.created_at | date : "medium" }}</p>
+</div>
+<ng-template #loading> Loading... </ng-template>

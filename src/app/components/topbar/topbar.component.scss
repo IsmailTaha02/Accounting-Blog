@@ -1,0 +1,61 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgb(0, 0, 0);
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 5px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  color: white;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.nav-links a {
+  margin-left: 18px;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.nav-links a:hover {
+  color: #dae0e6;
+  border-bottom: 1px solid white;
+}
+
+.login-btn,
+.logout-btn,
+.add-btn {
+  padding: 10px 20px;
+  background: none;
+  border: 1px solid white;
+  border-radius: 7px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 5px;
+}
+
+.add-btn {
+  background-color: blue;
+}
+
+.add-btn:hover {
+  background-color: rgb(6, 6, 114);
+}
+
+.login-btn:hover {
+  background-color: rgb(28, 28, 28);
+}
+
+.logout-btn:hover {
+  background-color: rgb(24, 24, 24);
+}
