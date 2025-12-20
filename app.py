@@ -18,7 +18,9 @@ def create_app():
     app = Flask(__name__)
 
     CORS(app)
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///blog.db"
+    # NEW PostgreSQL
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     db.init_app(app)
@@ -145,18 +147,18 @@ def create_app():
 
         return jsonify({"msg": f"Post '{slug}' deleted"}), 200
     
-    
+
     return app
 
 
 app = create_app()
 
-if __name__ == "__main__":
-    # Create database file if not exists
-    if not os.path.exists("blog.db"):
-        with app.app_context():
-            db.create_all()
+# ✅ ALWAYS create tables (safe for Postgres)
+with app.app_context():
+    db.create_all()
 
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run()
+
 
 
